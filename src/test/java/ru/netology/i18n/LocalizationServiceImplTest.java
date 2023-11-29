@@ -12,11 +12,11 @@ class LocalizationServiceImplTest {
             "RUSSIA, Добро пожаловать",
             "GERMANY, Welcome",
     })
-    void test_locale(String country, String expected) {
+    void test_locale(String country, String expectedWord) {
 
         LocalizationServiceImpl localizationService = new LocalizationServiceImpl();
         String countryActual = localizationService.locale(Country.valueOf(country));
 
-        Assertions.assertEquals(expected, countryActual);
+        Assertions.assertEquals(expectedWord, countryActual);
     }
 }

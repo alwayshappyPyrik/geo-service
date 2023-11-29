@@ -19,7 +19,7 @@ class GeoServiceImplTest {
             "96.44.183.149, New York, USA, 10th Avenue, 32"
     })
     void test_byIp_location(String ip, ArgumentsAccessor argumentsForLocation) {
-        Location location = new Location(argumentsForLocation.getString(1),
+        Location locationExpected = new Location(argumentsForLocation.getString(1),
                 (argumentsForLocation.get(2, Country.class)),
                 argumentsForLocation.getString(3),
                 argumentsForLocation.getInteger(4));
@@ -27,7 +27,7 @@ class GeoServiceImplTest {
 
         Location locationActual = geoService.byIp(ip);
 
-        Assertions.assertEquals(location, locationActual);
+        Assertions.assertEquals(locationExpected, locationActual);
     }
 
     @Test
